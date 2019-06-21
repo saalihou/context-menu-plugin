@@ -36,7 +36,7 @@ function install(editor, {
     editor.on('contextmenu', ({ e, node }) => {
         e.preventDefault();
         e.stopPropagation();
-        const allNodeItems = node ? merge(nodeItems, getNodeItems(node)) : null;
+        const allNodeItems = node ? merge({}, nodeItems, getNodeItems(node)) : null;
         
         nodeMenu = node ? new NodeMenu(editor, { searchBar: false, delay }, vueComponent, allNodeItems) : nodeMenu;
 
